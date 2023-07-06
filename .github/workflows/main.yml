@@ -1,0 +1,21 @@
+name: Run tests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mongodb-version: ['6.0']
+
+    steps:
+    - name: Git checkout
+      uses: actions/checkout@v3
+
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.8.0
+      with:
+        mongodb-version: ${{ matrix.mongodb-version }}
+
+    - run: curl localhost:27017
