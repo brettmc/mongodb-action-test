@@ -17,6 +17,7 @@ jobs:
       uses: supercharge/mongodb-github-action@1.9.0
       with:
         mongodb-version: ${{ matrix.mongodb-version }}
+        mongodb-replica-set: test-rs
 
     - name: Check mongo
       run: |
