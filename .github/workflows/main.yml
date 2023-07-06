@@ -26,4 +26,5 @@ jobs:
           let COUNTER+=2
           echo "Waiting for mongo to initialize... ($COUNTER seconds so far)"
         done
-        curl mongodb:27017
+        docker logs mongodb
+        curl -v localhost:27017
